@@ -50,6 +50,17 @@ public class StreamPlaneController {
         return Collections.singletonMap("response", "success");
     }
 
+    @RequestMapping(value = "/setInstanceOutputLogStatus", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Map setInstanceOutputLogStatus(@RequestParam(value = "operatorCacheKey", defaultValue = "") String operatorCacheKey,
+                                 @RequestParam(value = "subtaskIndex", defaultValue = "0") String subtaskIndex,
+                                 @RequestParam(value = "status", defaultValue = "without-log") String status) {
+        ClientConfiguration cfg = new ClientConfiguration();
+        cfg.setAddresses("localhost");
+        IgniteClient igniteClient = Ignition.startClient(cfg);
+        igniteClient.cache(operatorCacheKey).put("instance-output-" + subtaskIndex, status);
+        return Collections.singletonMap("response", "success");
+    }
+
     @RequestMapping(value = "/convertChannel", produces = MediaType.APPLICATION_JSON_VALUE)
     public Map convertChannel(@RequestParam(value = "outputStreamId", defaultValue = "") String outputStreamId,
                          @RequestParam(value = "channelIndex", defaultValue = "0") String channelIndex,
