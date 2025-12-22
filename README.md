@@ -8,7 +8,7 @@ The current version is intended for demo purpose only. Some variables must be ma
 ## License
 
 This project is licensed under the [Apache License 2.0](https://github.com/aistairc/streamplane-web-interface/blob/master/LICENSE).
-This project use [GoJS](https://go.js.org/). Refer to [GoJS License](https://gojs.net/3.0.18/license.html) for details.
+This project use [GoJS](https://go.js.org/) as the visual graph library. Refer to [GoJS Evaluation License Agreement](https://gojs.net/latest/evaluationLicense.html) for details.
 
 ## Acknowledgement
 
